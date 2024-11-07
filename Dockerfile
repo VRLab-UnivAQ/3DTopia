@@ -23,4 +23,4 @@ RUN wget https://huggingface.co/hongfz16/3DTopia/blob/main/3dtopia_diffusion_sta
 CMD ["conda", "run", "-n", "3dtopia", "python", "-u",                     \
      "sample_stage1.py", "--text=a robot", "--samples=1",                 \
      "--sampler=ddim", "--steps=200", "--cfg_scale=7.5", "--seed=0",      \
-     "--ckkt=3dtopia_diffusion_state_dict.ckpt]
+     "--ckkt=3dtopia_diffusion_state_dict.ckpt"]

@@ -21,4 +21,4 @@ RUN wget https://huggingface.co/hongfz16/3DTopia/blob/main/3dtopia_diffusion_sta
 
 # Set the command to run your application
 # Update this based on your application entry point
-CMD ["python", "-u sample_stage1.py", "--text "a robot"",  "--samples 1", "--sampler ddim", "--steps 200", "--cfg_scale 7.5", "--seed 0"]
+CMD ["python -u sample_stage1.py --text "a robot" --samples 1 --sampler ddim --steps 200 --cfg_scale 7.5 --seed 0"]

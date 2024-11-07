@@ -11,8 +11,7 @@ COPY environment.yml .
 RUN conda env create -f environment.yml
 
 # Make sure Conda environment is activated in subsequent commands
-# Here, replace 'myenv' with the name of your Conda environment in environment.yml
-SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "3dtopia", "/bin/bash", "-c"]
 
 # Copy the rest of your application code
 COPY . .

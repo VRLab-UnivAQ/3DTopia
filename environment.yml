@@ -148,3 +148,4 @@ dependencies:
       - wandb==0.15.3
       - wcwidth==0.2.6
       - zipp==3.17.0
+      - tyro==0.8.14

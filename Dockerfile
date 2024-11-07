@@ -4,6 +4,9 @@ FROM continuumio/miniconda3
 # Set a working directory
 WORKDIR /app
 
+# Install required system libraries
+RUN apt-get update && apt-get install -y libgl1 && rm -rf /var/lib/apt/lists/*
+
 # Copy your environment file (environment.yml) to the container
 COPY environment.yml .
 

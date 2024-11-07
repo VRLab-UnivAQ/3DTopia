@@ -19,8 +19,8 @@ COPY . .
 # Get the 3DTopia model from Huggingface
 RUN wget https://huggingface.co/hongfz16/3DTopia/blob/main/3dtopia_diffusion_state_dict.ckpt
 
-# Set the CMD in JSON format with each argument as a separate item
-CMD ["conda", "run", "-n", "3dtopia", "python", "-u", 
-     "sample_stage1.py", "--text=a robot", "--samples=1", 
-     "--sampler=ddim", "--steps=200", "--cfg_scale=7.5", "--seed=0",
+# Set the CMD in JSON format with each argument as a separate item 
+CMD ["conda", "run", "-n", "3dtopia", "python", "-u",                     \
+     "sample_stage1.py", "--text=a robot", "--samples=1",                 \
+     "--sampler=ddim", "--steps=200", "--cfg_scale=7.5", "--seed=0",      \
      "--ckkt=3dtopia_diffusion_state_dict.ckpt]

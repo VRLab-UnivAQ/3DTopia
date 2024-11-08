@@ -20,8 +20,9 @@ WORKDIR /app
 # Copy your environment file (environment.yml) to the container
 COPY environment.yml .
 
-# Install dependencies from the Conda environment file
-RUN conda env create -f environment.yml
+# Install dependencies from the Conda environment file and add cuda-toolkit
+RUN conda env create -f environment.yml && \
+    conda install -n 3dtopia -c conda-forge cudatoolkit=11.8
 
 # Make sure Conda environment is activated in subsequent commands
 SHELL ["conda", "run", "-n", "3dtopia", "/bin/bash", "-c"]

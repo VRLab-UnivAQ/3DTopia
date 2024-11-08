@@ -16,6 +16,8 @@ RUN conda env create -f environment.yml
 # Make sure Conda environment is activated in subsequent commands
 SHELL ["conda", "run", "-n", "3dtopia", "/bin/bash", "-c"]
 
+RUN pip freeze
+
 # Copy the rest of your application code
 COPY . .
 

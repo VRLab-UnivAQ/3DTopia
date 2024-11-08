@@ -150,6 +150,6 @@ dependencies:
       - zipp==3.17.0
       - tyro==0.8.14
       - kiui==0.2.14
-      - gradio==4.44.1
-      - pytorch_lightning==2.4.0
+      - gradio
+      - pytorch_lightning
 

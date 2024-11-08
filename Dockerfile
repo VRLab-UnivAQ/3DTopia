@@ -1,5 +1,5 @@
 # Start from a CUDA-compatible Miniconda base image
-FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
 
 # Update and prepare OS base
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget git libgl1 g++ build-essential ninja-build && \

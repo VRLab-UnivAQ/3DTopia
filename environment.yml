@@ -152,4 +152,5 @@ dependencies:
       - kiui==0.2.14
       - gradio
       - pytorch_lightning
+      - threefiner
 

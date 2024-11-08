@@ -1,10 +1,12 @@
 # Start from a CUDA-compatible Miniconda base image
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
-# Install Miniconda
+# Update and prepare OS base
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget git libgl1 g++ build-essential ninja-build && \
-    rm -rf /var/lib/apt/lists/* && \
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Miniconda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash miniconda.sh -b -p /opt/conda && \
     rm miniconda.sh && \
     /opt/conda/bin/conda init bash

@@ -14,6 +14,18 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 # Set PATH to use Conda
 ENV PATH /opt/conda/bin:$PATH
 
+# Set CUDA environment variables
+ENV CUDA_HOME /usr/local/cuda
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:$LD_LIBRARY_PATH
+ENV PATH /usr/local/cuda/bin:$PATH
+
+RUN ln -s /usr/local/cuda/include/* /opt/conda/envs/3dtopia/include/ && \
+    ln -s /usr/local/cuda/lib64/* /opt/conda/envs/3dtopia/lib/
+
+RUN echo "Testing CUDA installation..." && \
+    ls /usr/local/cuda/include/cuda_runtime.h && \
+    conda run -n 3dtopia python -c "import torch; print(torch.cuda.is_available())"
+
 # Set a working directory
 WORKDIR /app
 

@@ -2,7 +2,8 @@
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
 # Install Miniconda
-RUN apt-get update && apt-get install -y wget && \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wget git libgl1 g++ build-essential ninja-build && \
+    rm -rf /var/lib/apt/lists/* && \
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash miniconda.sh -b -p /opt/conda && \
     rm miniconda.sh && \
@@ -13,11 +14,6 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Set a working directory
 WORKDIR /app
-
-# Install required system libraries and build tools
-RUN apt-get update && \
-    apt-get install -y libgl1 g++ build-essential ninja-build && \
-    rm -rf /var/lib/apt/lists/*
 
 # Copy your environment file (environment.yml) to the container
 COPY environment.yml .

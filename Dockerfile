@@ -1,5 +1,15 @@
-# Start from an official miniconda base image
-FROM continuumio/miniconda3
+# Start from a CUDA-compatible Miniconda base image
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+
+# Install Miniconda
+RUN apt-get update && apt-get install -y wget && \
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
+    bash miniconda.sh -b -p /opt/conda && \
+    rm miniconda.sh && \
+    /opt/conda/bin/conda init bash
+
+# Set PATH to use Conda
+ENV PATH /opt/conda/bin:$PATH
 
 # Set a working directory
 WORKDIR /app

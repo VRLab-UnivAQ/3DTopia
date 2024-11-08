@@ -149,3 +149,7 @@ dependencies:
       - wcwidth==0.2.6
       - zipp==3.17.0
       - tyro==0.8.14
+      - kiui==0.2.14
+      - gradio==5.5.0
+      - pytorch_lightning==2.4.0
+
